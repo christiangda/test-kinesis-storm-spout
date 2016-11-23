@@ -63,6 +63,29 @@ public class ProcessKinesisEvents {
         this.topoBuilder.setBolt(ProcessEventBolt.NAME, new ProcessEventBolt(), 2).shuffleGrouping("GetEventsSpout");
     }
 
+    private void runDevelop() throws InvalidTopologyException, AuthorizationException, AlreadyAliveException {
+        LOG.info("-- Running storm topology in develop mode --");
+        LOG.info("-- Submitting topology " + topologyName + " --");
+
+        System.out.println("Not implemented yet");
+
+/*        int clientPort = 21818; // none-standard
+        int numConnections = 5000;
+        int tickTime = 2000;
+        String dataDirectory = System.getProperty("java.io.tmpdir");
+
+        File dir = new File(dataDirectory, "zookeeper").getAbsoluteFile();
+
+        ZooKeeperServer server = new ZooKeeperServer(dir, dir, tickTime);
+        NIOServerCnxn.Factory standaloneServerFactory = new NIOServerCnxn.Factory(new InetSocketAddress(clientPort), numConnections);
+
+        standaloneServerFactory.startup(server); // start the server.*/
+
+        //StormSubmitter.submitTopologyWithProgressBar(topologyName, topoConf, topoBuilder.createTopology());
+
+        //standaloneServerFactory.shutdown()
+    }
+
     private void runLocal(int runTime) {
         LOG.info("-- Running storm topology in local mode --");
         LOG.info("-- Submitting topology " + topologyName + " to local cluster --");
@@ -116,11 +139,14 @@ public class ProcessKinesisEvents {
         ParseConfig config = new ParseConfig(fileConfig);
 
         if (mode != null) {
-            if (mode.equals("local")) {
-                ProcessKinesisEvents topology = new ProcessKinesisEvents(config.getConf());
+
+            ProcessKinesisEvents topology = new ProcessKinesisEvents(config.getConf());
+
+            if (mode.equals("develop")) {
+                topology.runDevelop();
+            } else if (mode.equals("local")) {
                 topology.runLocal(100000);
             } else if (mode.equals("cluster")) {
-                ProcessKinesisEvents topology = new ProcessKinesisEvents(config.getConf());
                 topology.runCluster();
             }
         } else {
