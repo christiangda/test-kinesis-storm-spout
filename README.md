@@ -6,9 +6,20 @@ to master branch to create your own artifact.
 The goal of this project is show you how to use [AWS kinesis-storm-spout](https://github.com/awslabs/kinesis-storm-spout) with [Apache Storm 1.0.2](http://storm.apache.org/) before we don't have a official release!
 
 ## How to create a new artifact
+
 I'm asumming that you have installed
 * [Maven >= 3.3.9](https://maven.apache.org/)
 * [IntelliJ >= 2016.x](https://www.jetbrains.com/idea/)
+* [AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+
+and also configured your AWS Cli like this
+```
+cat ~/.aws/credentials
+[test-kinesis]
+aws_access_key_id = <your access key here>
+aws_secret_access_key = <your secret key here>
+
+```
 
 ### Get the Pull Request #37
 ```

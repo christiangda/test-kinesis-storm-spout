@@ -1,10 +1,10 @@
 #### AWS Profile
-aws.credentials.profile : "downloads"
+aws.credentials.profile : "test-kinesis"
 
 #### AWS Kinesis Config
 
 # Name of the Kinesis stream
-kinesis.stream.name: "dwl-historic-ttb-generalstats"
+kinesis.stream.name: "my-kinesis-stream"
 
 # The spout will start fetching records from this position in the stream (if a checkpoint is not present). This can be
 # set to LATEST or TRIM_HORIZON. Use TRIM_HORIZON to start processing from the oldest available record.
@@ -20,4 +20,4 @@ kinesis.region.name: "us-west-2"
 kinesis.zookeeper.end.points: "localhost:2000"
 
 # Prefix/path for storing spout state in Zookeeper
-kinesis.zookeeper.data.prefix: "dev-kinesis"
+kinesis.zookeeper.data.prefix: "my-kinesis"
