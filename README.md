@@ -33,7 +33,7 @@ git checkout upgrade-storm
 ### Override project version with your own version
 ```
 cd /tmp/kinesis-storm-spout/
-mvn versions:set -DnewVersion=1.2.0-txrlabs-1
+mvn versions:set -DnewVersion=1.2.0-custom-1
 ```
 
 ### Compile and Package
