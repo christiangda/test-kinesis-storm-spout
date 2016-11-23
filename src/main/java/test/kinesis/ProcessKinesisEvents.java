@@ -60,14 +60,16 @@ public class ProcessKinesisEvents {
         //**************************************************************************//
         //*************************** Topology Structure ***************************//
         this.topoBuilder.setSpout("GetEventsSpout", GetEventsSpout, 1);
-        this.topoBuilder.setBolt(ProcessEventBolt.NAME, new ProcessEventBolt(), 2);
+        this.topoBuilder.setBolt(ProcessEventBolt.NAME, new ProcessEventBolt(), 2).shuffleGrouping("GetEventsSpout");
     }
 
     private void runLocal(int runTime) {
         LOG.info("-- Running storm topology in local mode --");
         LOG.info("-- Submitting topology " + topologyName + " to local cluster --");
 
-        topoConf.setDebug(true);
+        //topoConf.setDebug(true);
+        topoConf.setNumWorkers(2);
+
         cluster = new LocalCluster();
         cluster.submitTopology(topologyName, topoConf, topoBuilder.createTopology());
         if (runTime > 0) {
@@ -87,8 +89,8 @@ public class ProcessKinesisEvents {
         LOG.debug("-- Running storm topology in cluster mode --");
         LOG.info("-- Submitting topology " + topologyName + " to cluster --");
 
-        topoConf.setNumWorkers(4);
-        topoConf.setMaxSpoutPending(5000);
+        topoConf.setNumWorkers(2);
+        topoConf.setMaxSpoutPending(1000);
 
         StormSubmitter.submitTopology(topologyName, topoConf, topoBuilder.createTopology());
     }
@@ -116,7 +118,7 @@ public class ProcessKinesisEvents {
         if (mode != null) {
             if (mode.equals("local")) {
                 ProcessKinesisEvents topology = new ProcessKinesisEvents(config.getConf());
-                topology.runLocal(30000);
+                topology.runLocal(100000);
             } else if (mode.equals("cluster")) {
                 ProcessKinesisEvents topology = new ProcessKinesisEvents(config.getConf());
                 topology.runCluster();
