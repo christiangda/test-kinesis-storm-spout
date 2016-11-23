@@ -8,45 +8,6 @@
     <artifactId>test-kinesis</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <repositories>
-        <!-- Company repo -->
-        <repository>
-            <id>nexus.tuguu.com-thirdparty</id>
-            <url>https://nexus.tguhost.com/content/repositories/thirdparty</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>nexus.tuguu.com-thirdparty-snapshots</id>
-            <url>https://nexus.tguhost.com/content/repositories/thirdparty-snapshots</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-
-        <!-- Maven central repo -->
-        <repository>
-            <id>mvnrepository</id>
-            <url>http://repo1.maven.org/maven2</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-    </repositories>
-
     <properties>
         <!-- Maven Project properties -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,7 +16,7 @@
         <!-- Maven Dependencies versions -->
         <storm.version>1.0.2</storm.version>
         <aws.sdk.version>1.11.56</aws.sdk.version>
-        <aws.kinesis.storm.spout.version>1.2.2-txrlabs-3</aws.kinesis.storm.spout.version>
+        <aws.kinesis.storm.spout.version>1.2.0-txrlabs-1</aws.kinesis.storm.spout.version>
         <snakeyaml.version>1.17</snakeyaml.version>
 
         <slf4j.version>1.7.21</slf4j.version>
