@@ -1,6 +1,6 @@
 # Test AWS Kinesis Spout with Apache Storm 1.0.2
 Until [AWS kinesis-storm-spout](https://github.com/awslabs/kinesis-storm-spout)
-maintaners don't have created a new release with support for [Apache Storm 1.0.2](http://storm.apache.org/), you will need merge a [kinesis-storm-spout github project --> PR #37](https://github.com/awslabs/kinesis-storm-spout/pull/37)
+maintaners don't have created a new release with support for [Apache Storm 1.0.2](http://storm.apache.org/), you will need merge a [kinesis-storm-spout github project --> PR #43](https://github.com/awslabs/kinesis-storm-spout/pull/43)
 to master branch to create your own artifact.
 
 The goal of this project is show you how to use [AWS kinesis-storm-spout](https://github.com/awslabs/kinesis-storm-spout) with [Apache Storm 1.0.2](http://storm.apache.org/) before we don't have a official release!
