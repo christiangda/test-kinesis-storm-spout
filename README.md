@@ -75,13 +75,13 @@ until now , we finish with kinesis.
 
 ## How to create a new kinesis-storm-spout artifact 
 
-### Get the Pull Request #37
+### Get the Pull Request #43
 
 ```renderscript
 cd /tmp
 git clone https://github.com/awslabs/kinesis-storm-spout.git
 cd kinesis-storm-spout/
-git fetch origin pull/37/head:upgrade-storm
+git fetch origin pull/43/head:upgrade-storm
 git checkout upgrade-storm
 ```
 
