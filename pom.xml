@@ -15,7 +15,7 @@
 
         <!-- Maven Dependencies versions -->
         <storm.version>1.0.2</storm.version>
-        <aws.sdk.version>1.11.56</aws.sdk.version>
+        <aws.sdk.version>1.11.67</aws.sdk.version>
         <aws.kinesis.storm.spout.version>1.2.0-custom-1</aws.kinesis.storm.spout.version>
         <snakeyaml.version>1.17</snakeyaml.version>
 
